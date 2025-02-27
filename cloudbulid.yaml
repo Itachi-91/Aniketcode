@@ -27,7 +27,7 @@ steps:
   # step 6 push this image into google artifacts
   # changing image name as per google artifacts 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag ', 'aniketweb:v1', 'asia-docker.pkg.dev/vodafone-devsecops/vodafone-webapp-images/aniketweb:v1']
+    args: ['tag', 'aniketweb:v1', 'asia-docker.pkg.dev/vodafone-devsecops/vodafone-webapp-images/aniketweb:v1']
   # Step 7 to push image 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push ', 'asia-docker.pkg.dev/vodafone-devsecops/vodafone-webapp-images/aniketweb:v1']
+    args: ['push', 'asia-docker.pkg.dev/vodafone-devsecops/vodafone-webapp-images/aniketweb:v1']
