@@ -19,6 +19,6 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['run', '-idt', '--name', 'aniket1',
      '-p' ,'1122:80', '--rm' ,'aniketweb:v1']
-  #step 5
+  #step 5 curl
   - name: 'gcr.io/cloud-builders/docker'
     args: ['exec','aniket1','curl','-f','http://localhost/health.html'] 
