@@ -1,3 +1,5 @@
 FROM httpd
-RUN apt update && install curl -y
-COPY html-sample-app  /usr/local/apache2/htdocs/
+RUN apt update && apt install curl -y
+COPY  web-app /usr/local/apache2/htdocs/
+ 
+ 
