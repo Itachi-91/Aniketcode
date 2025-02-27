@@ -5,13 +5,6 @@ steps:
   # using code build internal command to build image
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'aniketweb:v1', '.']
-options:
-  logging: CLOUD_LOGGING_ONLY
-steps:
-  # STEP 1
-  # using code build internal command to build image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'ashuwebapp:v1', '.']
   # Step 2
   # do SAST in build container image with trivy
   - name: 'aquasec/trivy:latest'
