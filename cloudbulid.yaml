@@ -21,5 +21,13 @@ steps:
      '-p' ,'1122:80', '--rm' ,'aniketweb:v1']
      
   #step 5 curllll
+ # - name: 'gcr.io/cloud-builders/docker'
+  #  args: ['exec','aniket1','curl','-f','http://localhost/health.html'] 
+
+  # step 6 push this image into google artifacts
+  # changing image name as per google artifacts 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','aniket1','curl','-f','http://localhost/health.html'] 
+    args: ['tag ', 'aniketweb:v1', 'asia-docker.pkg.dev/vodafone-devsecops/vodafone-webapp-images/aniketweb:v1']
+  # Step 7 to push image 
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push ', 'asia-docker.pkg.dev/vodafone-devsecops/vodafone-webapp-images/aniketweb:v1']
