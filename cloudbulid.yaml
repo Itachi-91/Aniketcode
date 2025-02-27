@@ -9,5 +9,5 @@ steps:
   # creating container 
   - name: 'gcr.io/cloud-builders/docker'
     args: ['run', '-idt', '--name', 'aniket1',
-     '-p' ,'1122:80', '--rm' ,'aniket:v1'
+     '-p' ,'1122:80', '--rm' ,'aniketweb:v1'
     ]
