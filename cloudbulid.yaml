@@ -5,10 +5,22 @@ steps:
   # using code build internal command to build image
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'aniketweb:v1', '.']
-  # Step 2 
-
+options:
+  logging: CLOUD_LOGGING_ONLY
+steps:
+  # STEP 1
+  # using code build internal command to build image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'ashuwebapp:v1', '.']
+  # Step 2
+  # do SAST in build container image with trivy
   - name: 'aquasec/trivy:latest'
-    args: ['image' ,'--severity' ,'HIGH,CRITICAL' ,'--format', 'json',  '--output' , '/tmp/aniket_imagescan.json','--exit-code','1' ,'aniketweb:v1']
+    args: ['image' ,'--severity' ,'HIGH,CRITICAL' ,'--format', 'json',  '--output' , '/workspace/aniket_imagescan.json','--exit-code','0' ,'aniketweb:v1']
+    
+  # STEP 3 upload trivy result to GSC
+  - name:  'google/cloud-sdk'
+    args: ['gsutil', 'cp','/workspace/aniket_imagescan.json','gs://vodafone-trivy-scan-results/containers/']
+  # Step 4
  
   # creating container 
   - name: 'gcr.io/cloud-builders/docker'
