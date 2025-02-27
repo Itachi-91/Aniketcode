@@ -9,7 +9,7 @@ steps:
 
   # do SAST in build container image with trivy
   - name: 'aquasec/trivy:latest'
-    args: ['image' , 'aniketweb:v1']
+    args: ['image' , '--severity' ,'HIGH,CRITICAL', '-,format', 'json', '--output','/tmp/data/aniket.json', 'aniketweb:v1']
  
   # creating container 
   - name: 'gcr.io/cloud-builders/docker'
