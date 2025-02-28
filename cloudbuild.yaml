@@ -4,18 +4,13 @@ steps:
   - name: 'hashicorp/terraform'
     args:
       - 'init'
-    dir: 'codes' # Specify the directory where your .tf files are
+    dir: 'Aniket-terraform' # Specify the directory where your .tf files are
  
-  - name: 'hashicorp/terraform'
-    args:
-      - 'plan'
-    dir: 'codes'
-
   - name: 'hashicorp/terraform'
     args:
       - 'apply'
       - '-auto-approve' # Use with caution in production!
-    dir: 'codes'
+    dir: 'Aniket-terraform'
  
   # Optional: Add a step to destroy resources (for cleanup)
   # - name: 'hashicorp/terraform'
