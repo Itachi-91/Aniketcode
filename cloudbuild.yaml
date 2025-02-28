@@ -8,10 +8,15 @@ steps:
  
   - name: 'hashicorp/terraform'
     args:
+      - 'plan'
+    dir: 'Aniket-terraform'
+
+  - name: 'hashicorp/terraform'
+    args:
       - 'apply'
       - '-auto-approve' # Use with caution in production!
     dir: 'Aniket-terraform'
- 
+
   # Optional: Add a step to destroy resources (for cleanup)
   # - name: 'hashicorp/terraform'
   #   args:
