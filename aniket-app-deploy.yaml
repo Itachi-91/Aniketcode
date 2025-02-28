@@ -18,9 +18,10 @@ spec:
         app: aniket-app-deploy
     spec:
       containers:
-      - image: nginx
+      - image: asia-docker.pkg.dev/vodafone-devsecops/vodafone-webapp-images/aniketweb:v1
         name: nginx
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
         resources: {}
 status: {}
