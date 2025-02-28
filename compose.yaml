@@ -1,0 +1,11 @@
+services:
+  aniket-python-app:
+  # image we want to build
+    image: aniket-pyapp:samplev1
+    # location and name of Dockerfile  
+    build:
+      context: ./pyapp
+      dockerfile: dockerfile  
+  aniket-web-app:
+    image: aniket-webapp:samplev1
+    build: .
